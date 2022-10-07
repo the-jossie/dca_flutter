@@ -1,5 +1,7 @@
-import 'views/splash_screen.dart';
+import 'views/authentication.dart';
+import 'views/splash.dart';
 
 final routes = {
-  "splash_screen": (context) => const SplashScreen(),
+  "splash_screen": (context) => const SplashView(),
+  "sync_account": (context) => const AuthenticationView(),
 };

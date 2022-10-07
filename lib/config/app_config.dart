@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../extension/num.dart';
+import '../formatters/num.dart';
 
 class AppConfigService {
   static GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
