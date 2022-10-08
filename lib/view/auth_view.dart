@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 
 import '../config/app_config.dart';
-import '../view_models/auth.dart';
+import '../view_models/auth_view_model.dart';
 import '../widgets/ternary_container.dart';
 
 class AuthView extends StatelessWidget {

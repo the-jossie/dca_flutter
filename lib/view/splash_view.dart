@@ -1,4 +1,4 @@
-import 'package:dca_flutter/view_models/splash.dart';
+import 'package:dca_flutter/view_models/splash_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 
