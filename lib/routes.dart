@@ -1,5 +1,5 @@
-import 'pages/auth.dart';
-import 'pages/splash.dart';
+import 'view/auth.dart';
+import 'view/splash.dart';
 
 final routes = {
   "splash_screen": (context) => const SplashView(),
