@@ -30,6 +30,7 @@ class AuthView extends StatelessWidget {
                     child: DCATextFormField(
                       title: "Quidax Secret Key",
                       obscureText: true,
+                      textEditingController: viewModel.secretKeyTextController,
                       validator: (String value) =>
                           value.isEmpty ? "A.P.I key is required boss" : null,
                     ),
@@ -47,8 +48,47 @@ class AuthView extends StatelessWidget {
                       ),
                     ),
                     onPressed: () {
-                      if (viewModel.syncAccountFormKey.currentState!.validate())
-                        viewModel.handleSyncAccount;
+                      if (viewModel.syncAccountFormKey.currentState!
+                          .validate()) {
+                        viewModel.handleSyncAccount(
+                            viewModel.secretKeyTextController.text);
+                      }
+                    },
+                    color: AppConfigService.hexToColor("#ffb300").withOpacity(
+                      viewModel.appState == AppState.loading ? 0.5 : 1,
+                    ),
+                  ),
+                ],
+              ),
+              Column(
+                children: [
+                  const Text("Enter OTP"),
+                  Form(
+                    key: viewModel.otpFormKey,
+                    child: DCATextFormField(
+                      title: "OTP",
+                      textEditingController: viewModel.otpTextController,
+                      validator: (String value) =>
+                          value.isEmpty ? "OTP is required boss" : null,
+                    ),
+                  ),
+                  DCAButton(
+                    child: DCATernary(
+                      condition: viewModel.appState == AppState.loading,
+                      trueWidget: const CircularProgressIndicator.adaptive(),
+                      falseWidget: const Text(
+                        "LOG IN",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                    onPressed: () {
+                      if (viewModel.otpFormKey.currentState!.validate()) {
+                        viewModel.authenticateAccount(
+                            viewModel.otpTextController.text);
+                      }
                     },
                     color: AppConfigService.hexToColor("#ffb300").withOpacity(
                       viewModel.appState == AppState.loading ? 0.5 : 1,
