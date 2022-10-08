@@ -16,7 +16,7 @@ class SplashViewModel extends BaseViewModel {
     await Future.delayed(const Duration(seconds: 4)).then((value) async {
       if (_jwtTokenUtil.hasExpired(userToken)) {
         await _storage.removeKey("token");
-        AppConfigService.offAllNamed("sync_account");
+        AppConfigService.offAllNamed("auth");
       } else {
         AppConfigService.offAllNamed("index");
       }
