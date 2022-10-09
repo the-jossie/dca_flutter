@@ -5,24 +5,24 @@ import 'api/api_client.dart';
 import 'utils/jwt_tokens.dart';
 import 'utils/storage.dart';
 
-final getIt = GetIt.instance;
+final locator = GetIt.instance;
 
 Future<void> setUpGetIt() async {
   final sharedInstance = await SharedPreferences.getInstance();
 
-  getIt.registerLazySingleton<SharedPreferences>(
+  locator.registerLazySingleton<SharedPreferences>(
     () => sharedInstance,
   );
 
-  getIt.registerLazySingleton<Storage>(
+  locator.registerLazySingleton<Storage>(
     () => Storage(),
   );
 
-  getIt.registerLazySingleton<JwtTokenUtil>(
+  locator.registerLazySingleton<JwtTokenUtil>(
     () => JwtTokenUtil(),
   );
 
-  getIt.registerLazySingleton<ApiClient>(
+  locator.registerLazySingleton<ApiClient>(
     () => ApiClient(),
   );
 }

@@ -6,9 +6,9 @@ import '../utils/jwt_tokens.dart';
 import '../utils/storage.dart';
 
 class SplashViewModel extends BaseViewModel {
-  final Storage _storage = getIt<Storage>();
+  final Storage _storage = locator<Storage>();
 
-  final JwtTokenUtil _jwtTokenUtil = getIt<JwtTokenUtil>();
+  final JwtTokenUtil _jwtTokenUtil = locator<JwtTokenUtil>();
 
   Future<void> init() async {
     final String? userToken = _storage.getString("token");
@@ -18,7 +18,7 @@ class SplashViewModel extends BaseViewModel {
         await _storage.removeKey("token");
         AppConfigService.offAllNamed("auth");
       } else {
-        AppConfigService.offAllNamed("index");
+        AppConfigService.offAllNamed("dashboard");
       }
     });
   }

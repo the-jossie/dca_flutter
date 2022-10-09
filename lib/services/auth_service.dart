@@ -4,7 +4,7 @@ import '../api/api_client.dart';
 import '../set_up.dart';
 
 class AuthService {
-  final ApiClient _client = getIt<ApiClient>();
+  final ApiClient _client = locator<ApiClient>();
 
   Future<Response> syncAccount(Map data) async {
     return _client.post("user/syncAccount", data);

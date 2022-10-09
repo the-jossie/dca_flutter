@@ -3,7 +3,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../../set_up.dart';
 
 class Storage {
-  SharedPreferences prefs = getIt<SharedPreferences>();
+  SharedPreferences prefs = locator<SharedPreferences>();
 
   Future<void> setBool(String key, bool value) async {
     await prefs.setBool(key, value);

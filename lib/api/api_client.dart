@@ -9,7 +9,7 @@ import 'api_errors.dart';
 import 'http_exception.dart';
 
 class ApiClient {
-  Storage storage = getIt<Storage>();
+  Storage storage = locator<Storage>();
 
   Future<http.Response> get(
     String url, {

@@ -1,3 +1,4 @@
+
 import 'dart:convert';
 
 import 'package:dca_flutter/config/app_config.dart';
@@ -12,9 +13,9 @@ import '../utils/storage.dart';
 class AuthViewModel extends BaseViewModel {
   AppState appState = AppState.none;
 
-  final AuthService _authService = getIt<AuthService>();
+  final AuthService _authService = locator<AuthService>();
 
-  final Storage _storage = getIt<Storage>();
+  final Storage _storage = locator<Storage>();
 
   int currentPageIndex = 0;
   final pageController = PageController(initialPage: 0);
@@ -76,7 +77,7 @@ class AuthViewModel extends BaseViewModel {
 
       await _storage.setString("token", returnedToken);
 
-      AppConfigService.offAllNamed("index");
+      AppConfigService.offAllNamed("dashboard");
       appState = AppState.none;
     } catch (e) {
       appState = AppState.error;
