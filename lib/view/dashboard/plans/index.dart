@@ -7,7 +7,7 @@ import '../../../widgets/status_badge.dart';
 import '../../../widgets/ternary_container.dart';
 import '../../../config/app_config.dart';
 import '../../../formatters/string.dart';
-import '../../../view_models/dashboard/plans/index.dart';
+import '../../../view_models/dashboard/plans/plans_view_model.dart';
 import '../../../widgets/loading_widget.dart';
 import '../../../widgets/error_widget.dart' as dca_error_widget;
 import '../../../widgets/suspense.dart';
@@ -124,12 +124,12 @@ class PlansView extends StatelessWidget {
                                       height: 4.h,
                                     ),
                                     const Divider(),
-                                    PlanConfig(
+                                    PlanInfoLine(
                                       widgetKey: const Text("Name:"),
                                       value: Text(plan.name),
                                     ),
                                     const Divider(),
-                                    PlanConfig(
+                                    PlanInfoLine(
                                       widgetKey: const Text("Asset:"),
                                       value: Text(
                                         plan.market.baseUnit.toUpperCase(),
@@ -139,17 +139,17 @@ class PlansView extends StatelessWidget {
                                       ),
                                     ),
                                     const Divider(),
-                                    PlanConfig(
+                                    PlanInfoLine(
                                       widgetKey: const Text("Amount:"),
                                       value: Text(plan.amount),
                                     ),
                                     const Divider(),
-                                    PlanConfig(
+                                    PlanInfoLine(
                                       widgetKey: const Text("Schedule:"),
                                       value: Text(plan.schedule),
                                     ),
                                     const Divider(),
-                                    PlanConfig(
+                                    PlanInfoLine(
                                       widgetKey: const Text("Creation Date"),
                                       value: Text(
                                         plan.createdAt
@@ -157,7 +157,7 @@ class PlansView extends StatelessWidget {
                                       ),
                                     ),
                                     const Divider(),
-                                    PlanConfig(
+                                    PlanInfoLine(
                                       widgetKey: const Text("Is Active"),
                                       value: Switch.adaptive(
                                         value: plan.isActive,
@@ -296,11 +296,11 @@ class PlansView extends StatelessWidget {
   }
 }
 
-class PlanConfig extends StatelessWidget {
+class PlanInfoLine extends StatelessWidget {
   final Widget widgetKey;
   final Widget value;
 
-  const PlanConfig({
+  const PlanInfoLine({
     Key? key,
     required this.widgetKey,
     required this.value,
