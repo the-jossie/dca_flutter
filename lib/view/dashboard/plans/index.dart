@@ -174,7 +174,7 @@ class PlansView extends StatelessWidget {
                                       onPressed: () {
                                         AppConfigService.back();
                                         AppConfigService.pushNamed(
-                                          "dca_transaction",
+                                          "plan_transactions",
                                           arguments: {
                                             "transaction_id": plan.id,
                                             "plan_name": plan.name,

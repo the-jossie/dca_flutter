@@ -10,8 +10,8 @@ import '../../../widgets/button.dart';
 import '../../../widgets/input.dart';
 import '../../../widgets/ternary_container.dart';
 
-class CreatePlan extends StatelessWidget {
-  const CreatePlan({Key? key}) : super(key: key);
+class CreatePlanView extends StatelessWidget {
+  const CreatePlanView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

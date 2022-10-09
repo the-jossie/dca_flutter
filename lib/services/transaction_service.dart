@@ -6,7 +6,7 @@ import '../set_up.dart';
 class TransactionService {
   final ApiClient _client = locator<ApiClient>();
 
-  Future<Response> fetchTransaction(String id) async {
+  Future<Response> fetchPlanTransaction(String id) async {
     return _client.get(
       "transaction/transactions/$id",
       auth: true,

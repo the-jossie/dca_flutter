@@ -9,10 +9,11 @@ import '../../../widgets/error_widget.dart' as dca_error_widget;
 import '../../../widgets/loading_widget.dart';
 import '../../../widgets/suspense.dart';
 import '../../../widgets/ternary_container.dart';
+import '../../../widgets/transaction_info.dart';
 import '../../../widgets/transaction_status.dart';
 
-class Transactions extends StatelessWidget {
-  const Transactions({Key? key}) : super(key: key);
+class TransactionsView extends StatelessWidget {
+  const TransactionsView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -54,7 +55,7 @@ class Transactions extends StatelessWidget {
                         SizedBox(
                           height: 1.h,
                         ),
-                        TransactionInfoLine(
+                        TransactionInfo(
                           widgetKey: const Text(
                             "Asset:",
                             style: TextStyle(
@@ -64,7 +65,7 @@ class Transactions extends StatelessWidget {
                           value: Text(transaction.receive.unit),
                         ),
                         const Divider(),
-                        TransactionInfoLine(
+                        TransactionInfo(
                           widgetKey: const Text(
                             "Amount:",
                             style: TextStyle(
@@ -75,7 +76,7 @@ class Transactions extends StatelessWidget {
                               '${transaction.total.unit.toUpperCase()} ${double.parse(transaction.total.amount).toStringAsFixed(3)}'),
                         ),
                         const Divider(),
-                        TransactionInfoLine(
+                        TransactionInfo(
                           widgetKey: const Text(
                             "Received:",
                             style: TextStyle(
@@ -86,7 +87,7 @@ class Transactions extends StatelessWidget {
                               "${double.parse(transaction.receive.amount).toStringAsFixed(10)} ${transaction.receive.unit}"),
                         ),
                         const Divider(),
-                        TransactionInfoLine(
+                        TransactionInfo(
                           widgetKey: const Text(
                             "Fee",
                             style: TextStyle(
@@ -97,7 +98,7 @@ class Transactions extends StatelessWidget {
                               "${double.parse(transaction.fee.amount).toStringAsFixed(10)} ${transaction.fee.unit}"),
                         ),
                         const Divider(),
-                        TransactionInfoLine(
+                        TransactionInfo(
                           widgetKey: const Text(
                             "Status:",
                             style: TextStyle(
@@ -110,7 +111,7 @@ class Transactions extends StatelessWidget {
                           ),
                         ),
                         const Divider(),
-                        TransactionInfoLine(
+                        TransactionInfo(
                           widgetKey: const Text(
                             "Creation Date:",
                             style: TextStyle(
@@ -190,31 +191,6 @@ class Transactions extends StatelessWidget {
             },
           ),
         ),
-      ),
-    );
-  }
-}
-
-class TransactionInfoLine extends StatelessWidget {
-  final Widget widgetKey;
-  final Widget value;
-
-  const TransactionInfoLine({
-    Key? key,
-    required this.widgetKey,
-    required this.value,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.symmetric(vertical: 2.h),
-      child: Row(
-        children: [
-          widgetKey,
-          const Spacer(),
-          value,
-        ],
       ),
     );
   }

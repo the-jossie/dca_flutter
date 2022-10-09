@@ -43,6 +43,7 @@ class CreatePlanViewModel extends BaseViewModel {
       if (formKey.currentState!.validate()) {
         appState = AppState.loading;
         notifyListeners();
+
         final data = {
           "amount": amountTextController.text,
           "market": marketTextController.text,
