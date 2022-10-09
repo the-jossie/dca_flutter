@@ -24,6 +24,7 @@ class DashboardView extends StatelessWidget {
           backgroundColor: Colors.blueAccent,
           onTap: (index) => viewModel.changeTabIndex(index),
           selectedItemColor: Colors.black87,
+          unselectedItemColor: Colors.black45,
           type: BottomNavigationBarType.shifting,
           currentIndex: viewModel.currentTabIndex,
           items: const [

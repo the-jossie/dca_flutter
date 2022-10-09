@@ -1,4 +1,3 @@
-
 import 'dart:convert';
 
 import 'package:dca_flutter/config/app_config.dart';
@@ -78,7 +77,9 @@ class AuthViewModel extends BaseViewModel {
       await _storage.setString("token", returnedToken);
 
       AppConfigService.offAllNamed("dashboard");
+
       appState = AppState.none;
+      notifyListeners();
     } catch (e) {
       appState = AppState.error;
       notifyListeners();
