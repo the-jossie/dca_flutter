@@ -10,7 +10,7 @@ import 'utils/storage.dart';
 
 final locator = GetIt.instance;
 
-Future<void> setUpGetIt() async {
+Future<void> setUpServiceLocator() async {
   final sharedInstance = await SharedPreferences.getInstance();
 
   locator.registerLazySingleton<SharedPreferences>(
